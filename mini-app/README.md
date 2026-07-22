@@ -1,4 +1,3 @@
-ditoihkam@DESKTOP-AB0NL52:~/projects/mini-app$ cat README.md
 # ☕ Mini Coffee App
 
 Mini Coffee App is a full-stack application developed as an advanced mini application technical test.
@@ -344,6 +343,18 @@ The dashboard is the main interface of the application after successful authenti
     src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/dashboard.png"
     width="850"
     alt="Mini Coffee App Dashboard"
+  >
+</p>
+
+---
+
+## Login
+
+<p align="center">
+  <img
+    src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/login.png" 
+	width="850"
+    alt="Login "
   >
 </p>
 
