@@ -2,19 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Coffee Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
 </head>
+
 <body>
 
-<div class="container" style="width:900px">
+<div
+    class="container"
+    style="width:900px; max-width:95%;"
+>
 
     <h1>☕ Coffee Dashboard</h1>
+
     <p>
-    Welcome,
-    <b id="username"></b>
+        Welcome,
+        <b id="username"></b>
     </p>
 
     <button onclick="logout()">
@@ -24,30 +37,83 @@
     <hr>
 
     <button
-    id="importBtn"
-    onclick="importCoffee()"
->
-    Import Coffee
+        id="importBtn"
+        onclick="importCoffee()"
+    >
+        Import Coffee
     </button>
 
-    <br><br>
+    <hr>
+
+    <div id="transaction-form">
+
+        <h2>Create Transaction</h2>
+
+        <p>
+            Selected Coffee:
+            <strong id="selectedCoffee">
+                No coffee selected
+            </strong>
+        </p>
+
+        <input
+            type="hidden"
+            id="coffeeId"
+        >
+
+        <input
+            type="number"
+            id="qty"
+            min="1"
+            placeholder="Quantity"
+        >
+
+        <br><br>
+
+        <input
+            type="text"
+            id="notes"
+            placeholder="Notes (optional)"
+        >
+
+        <br><br>
+
+        <button onclick="submitTransaction()">
+            Submit Transaction
+        </button>
+
+        <button
+            type="button"
+            onclick="resetTransactionForm()"
+        >
+            Cancel
+        </button>
+
+    </div>
+
+    <hr>
+
+    <h2>Coffee List</h2>
 
     <input
         id="search"
+        type="search"
         placeholder="Search coffee..."
         onkeyup="loadCoffee()"
     >
 
     <br><br>
 
-    <div id="coffee-list"></div>
-    
+    <div id="coffee-list">
+        Loading coffee...
+    </div>
+
     <hr>
-    
+
     <h2>Transaction History</h2>
-    
+
     <div id="transaction-list">
-    
+        Loading transactions...
     </div>
 
 </div>
