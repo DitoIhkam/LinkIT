@@ -173,16 +173,22 @@ logs/error.log
 
 ## Login
 
-![Login](screenshots/login.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/login.png" width="900">
+</p>
 
 ---
 
 ## Dashboard
 
-![Dashboard](screenshots/dashboard.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/dashboard.png" width="900">
+</p>
 
 ---
 
 ## Docker Compose
 
-![Docker](screenshots/docker.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/docker-compose.png" width="900">
+</p>
