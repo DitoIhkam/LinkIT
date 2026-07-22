@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container" style="width:900px">
+
+    <h1>☕ Coffee Dashboard</h1>
+    <p>
+    Welcome,
+    <b id="username"></b>
+    </p>
+
+    <button onclick="logout()">
+        Logout
+    </button>
+
+    <hr>
+
+    <button
+    id="importBtn"
+    onclick="importCoffee()"
+>
+    Import Coffee
+    </button>
+
+    <br><br>
+
+    <input
+        id="search"
+        placeholder="Search coffee..."
+        onkeyup="loadCoffee()"
+    >
+
+    <br><br>
+
+    <div id="coffee-list"></div>
+    
+    <hr>
+    
+    <h2>Transaction History</h2>
+    
+    <div id="transaction-list">
+    
+    </div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>

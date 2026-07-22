@@ -1,0 +1,56 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: miniapp-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_USER: dito
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: miniapp
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dito -d miniapp"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+
+    container_name: miniapp-backend
+    restart: unless-stopped
+
+    environment:
+      DATABASE_URL: postgresql://dito:password@postgres:5432/miniapp
+      PORT: 3000
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    ports:
+      - "3000:3000"
+
+  frontend:
+    build:
+      context: ./frontend
+
+    container_name: miniapp-frontend
+    restart: unless-stopped
+
+    depends_on:
+      - backend
+
+    ports:
+      - "8080:80"
+
+volumes:
+  postgres_data:
