@@ -150,7 +150,20 @@ Main fields:
 Relationship:
 
 ```text
-Coffee 1 ──────── * Transaction
+Coffee
+------
+id
+title
+
+        1
+        │
+        │
+        ▼
+Transaction
+-----------
+coffeeId (FK)
+qty
+notes
 ```
 
 ---
@@ -337,6 +350,14 @@ The server returns a structured JSON error instead of terminating the applicatio
 ## Dashboard
 
 The dashboard is the main interface of the application after successful authentication. Users can import coffee data from the external API, search coffee records stored in PostgreSQL, and manage coffee transactions.
+The dashboard allows authenticated users to:
+
+- Import coffee data from Sample APIs
+- Search coffee records
+- Create, update, and delete transactions
+- View transaction history
+
+All displayed coffee data is retrieved from the local PostgreSQL database.
 
 <p align="center">
   <img
@@ -360,13 +381,22 @@ The dashboard is the main interface of the application after successful authenti
 
 ---
 
-## Database
+## Database Structure
+
+The application stores imported coffee data in a local PostgreSQL database using Prisma ORM.
+
+The database consists of two main tables:
+
+- **Coffee** (master table)
+- **Transaction** (transactional table)
+
+The screenshot below shows both tables and their stored records using Prisma Studio.
 
 <p align="center">
   <img
-    src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/database-prismastudio.png" 
-	width="850"
-    alt="Login "
+    src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/database-prismastudio.png"
+    width="850"
+    alt="Database Structure using Prisma Studio"
   >
 </p>
 
@@ -374,7 +404,7 @@ The dashboard is the main interface of the application after successful authenti
 
 ## Protected API (JWT Authentication)
 
-All protected endpoints require a valid JWT Bearer Token. Requests without a valid token are rejected with **HTTP 401 Unauthorized**, ensuring that only authenticated users can access the application resources.
+All protected endpoints require a valid JWT Bearer Token. Requests without a valid token are rejected  with **HTTP 401 Unauthorized**, ensuring that only authenticated users can access the application resources.
 
 <p align="center">
   <img
@@ -499,16 +529,16 @@ This enables consistent deployment with a single command.
 | JWT/Bearer Token | Authentication middleware | Protected API screenshot |
 | Protected APIs | Coffee and transaction routes | Unauthorized `401` screenshot |
 | Master table | `Coffee` | Dashboard screenshot |
-| Transaction table | `Transaction` | Transaction history screenshot |
-| Store external API data | `/coffees/import` | Dashboard after import |
+| Transaction table | `Transaction` | Prisma Studio & CRUD API screenshot |
+| Store external API data | `/coffees/import` | Dashboard & Prisma Studio
 | GET API | Coffee and transaction list | Dashboard/API screenshot |
 | POST API | Import and transaction creation | CRUD screenshot |
-| PUT API | Transaction update | Transaction history |
-| DELETE API | Transaction deletion | Transaction history |
+| PUT API | Transaction update | CRUD API screenshot |
+| DELETE API | Transaction deletion | CRUD API screenshot |
 | JSON response | Express API responses | API screenshot |
 | Validation | Zod schemas | Invalid request response |
 | Error handling | Global error middleware | Error response screenshot |
-| Transaction form | Dashboard form | Transaction input screenshot |
+| Transaction form | Dashboard | Dashboard screenshot |
 | Request logging | Request logger | Logs screenshot |
 | Transaction logs | Transaction logger | Logs screenshot |
 | Error logs | Error middleware | Alert/log screenshot |
