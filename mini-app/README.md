@@ -168,3 +168,21 @@ Error Log
 ```
 logs/error.log
 ```
+
+# Screenshots
+
+## Login
+
+![Login](screenshots/login.png)
+
+---
+
+## Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+---
+
+## Docker Compose
+
+![Docker](screenshots/docker.png)
