@@ -360,6 +360,18 @@ The dashboard is the main interface of the application after successful authenti
 
 ---
 
+## Database
+
+<p align="center">
+  <img
+    src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/database-prismastudio.png" 
+	width="850"
+    alt="Login "
+  >
+</p>
+
+---
+
 ## Protected API (JWT Authentication)
 
 All protected endpoints require a valid JWT Bearer Token. Requests without a valid token are rejected with **HTTP 401 Unauthorized**, ensuring that only authenticated users can access the application resources.
