@@ -1,3 +1,4 @@
+ditoihkam@DESKTOP-AB0NL52:~/projects/mini-app$ cat README.md
 # ☕ Mini Coffee App
 
 Mini Coffee App is a full-stack application developed as an advanced mini application technical test.
@@ -334,101 +335,65 @@ The server returns a structured JSON error instead of terminating the applicatio
 
 # Application Evidence
 
-## Login Page
+## Dashboard
 
-The application requires the user to authenticate before accessing the dashboard.
-
-<p align="center">
-  <img
-    src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/login.png"
-    width="850"
-    alt="Mini Coffee App login page"
-  >
-</p>
-
----
-
-## Dashboard and Coffee Master Data
-
-Coffee data displayed on this page is loaded from the backend API and local PostgreSQL database.
+The dashboard is the main interface of the application after successful authentication. Users can import coffee data from the external API, search coffee records stored in PostgreSQL, and manage coffee transactions.
 
 <p align="center">
   <img
     src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/dashboard.png"
     width="850"
-    alt="Mini Coffee App dashboard"
+    alt="Mini Coffee App Dashboard"
   >
 </p>
 
 ---
 
-## Transaction Input Form
+## Protected API (JWT Authentication)
 
-The user selects a coffee, enters the quantity and notes, and submits the transaction through the dashboard.
+All protected endpoints require a valid JWT Bearer Token. Requests without a valid token are rejected with **HTTP 401 Unauthorized**, ensuring that only authenticated users can access the application resources.
 
 <p align="center">
   <img
-    src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/create-transaction.png"
+    src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/api%20protect.png"
     width="850"
-    alt="Create coffee transaction form"
+    alt="Protected API Authentication"
   >
 </p>
 
 ---
 
-## Transaction History
+## CRUD API Operations
 
-Created transactions are displayed in the transaction history table and can be updated or deleted.
+The backend provides complete CRUD functionality for transaction management.
 
-<p align="center">
-  <img
-    src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/transaction-history.png"
-    width="850"
-    alt="Coffee transaction history"
-  >
-</p>
+The screenshot below demonstrates successful:
 
----
+- **POST** `/transactions` → **201 Created**
+- **PUT** `/transactions/:id` → **200 OK**
+- **DELETE** `/transactions/:id` → **200 OK**
 
-## Protected API
-
-Protected endpoints require a valid JWT Bearer Token.
-
-A request without a token returns HTTP `401 Unauthorized`.
-
-<p align="center">
-  <img
-    src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/api-protected.png"
-    width="850"
-    alt="Protected API unauthorized response"
-  >
-</p>
-
----
-
-## API CRUD Operation
-
-The backend supports GET, POST, PUT, and DELETE operations and returns JSON responses with appropriate HTTP status codes.
+It also shows that every request is recorded by the application logger together with the HTTP status code and response time.
 
 <p align="center">
   <img
     src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/api-crud.png"
     width="850"
-    alt="Backend CRUD API response"
+    alt="CRUD API Operations"
   >
 </p>
 
 ---
 
-## Health Check
+## Health Check Endpoint
 
-The backend health endpoint confirms that the application is running.
+The application exposes a health endpoint used to verify that the backend service is running properly.
 
 <p align="center">
   <img
-    src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/health-check.png"
+    src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/health%20check.png"
     width="850"
-    alt="Application health check response"
+    alt="Health Check Endpoint"
   >
 </p>
 
@@ -436,55 +401,68 @@ The backend health endpoint confirms that the application is running.
 
 ## Error Alert Simulation
 
-After the simulated error occurs more than three times, the backend generates an alert.
+The `/error` endpoint simulates server failures. After the error occurs more than three times, the application automatically triggers an alert notification.
 
 <p align="center">
   <img
     src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/alert-error.png"
     width="850"
-    alt="Error alert after more than three errors"
+    alt="Error Alert Simulation"
   >
 </p>
 
 ---
 
-## Slow Response Simulation
+## Slow Response Monitoring
 
-The `/slow` endpoint simulates a slow response, which is recorded in the slow-request log.
+The `/slow` endpoint simulates a slow API response. Requests exceeding the configured response time threshold are automatically detected and logged as slow requests.
 
 <p align="center">
   <img
-    src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/slow-response.png"
+    src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/slow.png"
     width="850"
-    alt="Slow response simulation"
+    alt="Slow Response Monitoring"
   >
 </p>
 
 ---
 
-## Application Logs
+## Request Logging
 
-The application records the method, endpoint, status code, and response time.
+The backend records every incoming request, including:
+
+- HTTP Method
+- Endpoint
+- HTTP Status Code
+- Response Time
+
+This helps monitor application activity and simplifies debugging.
 
 <p align="center">
   <img
     src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/logs.png"
     width="850"
-    alt="Backend request and error logs"
+    alt="Backend Request Logs"
   >
 </p>
 
 ---
 
-## Docker Compose
+## Docker Compose Deployment
 
-The backend, frontend, and PostgreSQL services run using Docker Compose.
+The entire application runs inside Docker containers using Docker Compose. The environment includes:
+
+- PostgreSQL Database
+- Express Backend
+- Frontend Application
+
+This enables consistent deployment with a single command.
 
 <p align="center">
   <img
     src="https://raw.githubusercontent.com/DitoIhkam/LinkIT/main/mini-app/screenshot/docker-compose.png"
     width="850"
-    alt="Docker Compose services"
+    alt="Docker Compose Deployment"
   >
 </p>
 
@@ -669,3 +647,4 @@ Expected response:
 **Dito Ihkam**
 
 Mini Coffee App — Technical Test Submission
+ditoihkam@DESKTOP-AB0NL52:~/projects/mini-app$
